@@ -45,20 +45,20 @@ def info(bot: Bot, update: Update, args: List[str]):
         return
     
     text = (f"<b>User Information:</b>\n"
-            f"🆔: <code>{user.id}</code>\n"
-            f"👤Name: {html.escape(user.first_name)}")
+            f"TG_ID: <code>{user.id}</code>\n"
+            f"Name: {html.escape(user.first_name)}")
 
     if user.last_name:
-        text += f"\n🚹Last Name: {html.escape(user.last_name)}"
+        text += f"\nLast Name: {html.escape(user.last_name)}"
 
     if user.username:
-        text += f"\n♻️Username: @{html.escape(user.username)}"
+        text += f"\nUsername: @{html.escape(user.username)}"
 
-    text += f"\n☣️Permanent user link: {mention_html(user.id, 'link🚪')}"
+    text += f"\nPermanent user link: {mention_html(user.id, 'link🚪')}"
 
     num_chats = sql.get_user_num_chats(user.id)
-    text += f"\n🌐Chat count: <code>{num_chats}</code>"
-    text += "\n🎭Number of profile pics: {}".format(bot.get_user_profile_photos(user.id).total_count)
+    text += f"\nChat count: <code>{num_chats}</code>"
+    text += "\nNumber of profile pics: {}".format(bot.get_user_profile_photos(user.id).total_count)
    
     try:
         user_member = chat.get_member(user.id)
