@@ -32,10 +32,7 @@ async def sonf_REG(client, message):
     
     target = message.reply_to_message.video.file_id
     print(target) #-------------------test
-    try:
-        await client.download_media(target, file_name=f'downloads/blackmusic-{message.message_id}.mp4')
-    except Exception as error:
-        m.edit(error)
+    await client.download_media(target, file_name=f"downloads/blackmusic-{message.message_id}.mp4")
     
     
     shazam = Shazam()
