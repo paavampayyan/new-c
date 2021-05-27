@@ -32,7 +32,7 @@ async def sonf_REG(client, message):
     
     target = message.reply_to_message.video.file_id
     print(target) #-------------------test
-    await client.download_media(target, file_name=f"downloads/blackmusic-{message.message_id}.mp4")
+    await app.download_media(target, file_name=f"downloads/blackmusic-{message.message_id}.mp4")
     
     
     shazam = Shazam()
